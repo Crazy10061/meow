@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "meow",
+  "version": "${version}",
+  "name": "meow",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/meow/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "org.code.meow.client.MeowDataGenerator"
+    ],
+    "client": [
+      "org.code.meow.client.MeowClient"
+    ],
+    "main": [
+      "org.code.meow.Meow"
+    ]
+  },
+  "mixins": [
+    "meow.mixins.json",
+    {
+      "config": "meow.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
