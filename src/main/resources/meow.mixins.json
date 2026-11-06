@@ -4,6 +4,7 @@
   "package": "org.code.meow.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "mixin"
   ],
   "injectors": {
     "defaultRequire": 1

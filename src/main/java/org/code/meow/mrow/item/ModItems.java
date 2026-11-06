@@ -1,4 +1,4 @@
-package org.code.meow.item;
+package org.code.meow.mrow.item;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;

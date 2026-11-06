@@ -1,4 +1,4 @@
-package org.code.meow;
+package org.code.meow.mrow;
 
 import net.fabricmc.api.ClientModInitializer;
 

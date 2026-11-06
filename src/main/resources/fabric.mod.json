@@ -11,10 +11,10 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "org.code.meow.MeowDataGenerator"
+      "org.code.meow.mrow.datagen.MeowDataGenerator"
     ],
     "client": [
-      "org.code.meow.MeowClient"
+      "org.code.meow.mrow.MeowClient"
     ],
     "main": [
       "org.code.meow.Meow"
