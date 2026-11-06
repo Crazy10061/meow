@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "meow",
   "version": "${version}",
-  "name": "meow",
+  "name": "Meow",
   "description": "",
   "authors": [],
   "contact": {},
@@ -11,21 +11,17 @@
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
-      "org.code.meow.client.MeowDataGenerator"
+      "org.code.meow.MeowDataGenerator"
     ],
     "client": [
-      "org.code.meow.client.MeowClient"
+      "org.code.meow.MeowClient"
     ],
     "main": [
       "org.code.meow.Meow"
     ]
   },
   "mixins": [
-    "meow.mixins.json",
-    {
-      "config": "meow.client.mixins.json",
-      "environment": "client"
-    }
+    "meow.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",

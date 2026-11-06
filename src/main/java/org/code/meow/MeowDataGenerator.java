@@ -1,4 +1,4 @@
-package org.code.meow.client;
+package org.code.meow;
 
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator;
