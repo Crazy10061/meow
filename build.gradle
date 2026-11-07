@@ -11,12 +11,10 @@ base {
 }
 
 loom {
-    splitEnvironmentSourceSets()
 
     mods {
         "meow" {
             sourceSet sourceSets.main
-            sourceSet sourceSets.client
         }
     }
 }
