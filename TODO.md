@@ -1,0 +1,3 @@
+- [x] add Cat Ears
+- [ ] add Estrogen :3
+- [ ] make cats be able to meow in chat (surely won't get annoying)

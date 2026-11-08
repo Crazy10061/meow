@@ -10,5 +10,6 @@ public class MeowDataGenerator implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
         pack.addProvider(ModModelProvider::new);
+        pack.addProvider(ModItemTagProvider::new);
     }
 }
