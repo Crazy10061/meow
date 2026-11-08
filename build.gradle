@@ -17,7 +17,7 @@ fabricApi {
 }
 
 repositories {
-    // Add repositories to retrieve artifacts from in here.
+    // Add repositories to retrieve artifacts from in hereg
     // You should only use this when depending on other mods because
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
