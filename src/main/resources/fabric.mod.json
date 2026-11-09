@@ -3,11 +3,11 @@
   "id": "meow",
   "version": "${version}",
   "name": "Meow",
-  "description": "",
+  "description": "meow",
   "authors": [],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/meow/icon.png",
+  "icon": "assets/meow/icon.jpg",
   "environment": "*",
   "entrypoints": {
     "fabric-datagen": [
