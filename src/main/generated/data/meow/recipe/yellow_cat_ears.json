@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "cat_ears",
+  "key": {
+    "#": "minecraft:string",
+    "$": "minecraft:yellow_dye"
+  },
+  "pattern": [
+    "# #",
+    "# #",
+    "$ $"
+  ],
+  "result": {
+    "id": "meow:yellow_cat_ears"
+  }
+}

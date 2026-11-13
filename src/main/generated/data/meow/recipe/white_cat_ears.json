@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "cat_ears",
+  "key": {
+    "#": "minecraft:string",
+    "$": "minecraft:white_dye"
+  },
+  "pattern": [
+    "# #",
+    "# #",
+    "$ $"
+  ],
+  "result": {
+    "id": "meow:white_cat_ears"
+  }
+}

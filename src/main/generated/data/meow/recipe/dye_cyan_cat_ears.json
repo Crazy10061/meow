@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "cat_ears",
+  "ingredients": [
+    "minecraft:cyan_dye",
+    [
+      "meow:white_cat_ears",
+      "meow:orange_cat_ears",
+      "meow:magenta_cat_ears",
+      "meow:light_blue_cat_ears",
+      "meow:yellow_cat_ears",
+      "meow:lime_cat_ears",
+      "meow:pink_cat_ears",
+      "meow:gray_cat_ears",
+      "meow:light_gray_cat_ears",
+      "meow:purple_cat_ears",
+      "meow:blue_cat_ears",
+      "meow:brown_cat_ears",
+      "meow:green_cat_ears",
+      "meow:red_cat_ears",
+      "meow:black_cat_ears"
+    ]
+  ],
+  "result": {
+    "id": "meow:cyan_cat_ears"
+  }
+}

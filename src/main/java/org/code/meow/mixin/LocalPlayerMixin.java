@@ -34,6 +34,6 @@ public class LocalPlayerMixin {
 	private boolean canFly(Abilities instance, Operation<Boolean> original) {
 		boolean isWearingCatEars = ((LocalPlayer)(Object)this).getItemBySlot(EquipmentSlot.HEAD).is(ModItemTagProvider.CAT_EARS);
 
-		return isWearingCatEars && !original.call(instance);
+		return !isWearingCatEars && original.call(instance);
 	}
 }

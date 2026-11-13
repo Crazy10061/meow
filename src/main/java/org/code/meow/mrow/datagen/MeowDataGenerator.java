@@ -8,7 +8,10 @@ public class MeowDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator fabricDataGenerator) {
         var pack = fabricDataGenerator.createPack();
+
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModItemTagProvider::new);
+        pack.addProvider(ModEnUsProvider::new);
+        pack.addProvider(ModRecipeProvider::new);
     }
 }

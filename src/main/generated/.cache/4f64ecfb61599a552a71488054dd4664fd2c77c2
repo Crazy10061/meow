@@ -1,3 +1,19 @@
 // 26.3	-999999999-01-01T00:00:00	Meow/Model Definitions
+d87aa4543f7eef4c98af4a474b68f9bc55d5e62f assets/meow/items/black_cat_ears.json
+5b8a9454c9eaccec54cec2d05ba45bdf080f5e47 assets/meow/items/blue_cat_ears.json
+2ad677b1a581235050495541e6f512e46eb29a3d assets/meow/items/brown_cat_ears.json
+4c61d35644847368d10cd66bf4afdf966475317b assets/meow/items/cyan_cat_ears.json
+7e0a4779e26a839ba4a1f4ef4f08736d1e6f41b1 assets/meow/items/gray_cat_ears.json
+e128ebc0646508491ac4b496f504fe53465a3ccd assets/meow/items/green_cat_ears.json
+3c5c8c7036ead49ee1a886f8a8b23c9cb5843fac assets/meow/items/light_blue_cat_ears.json
+6d129f25a490bc103040d2d09650263c11edb7ae assets/meow/items/light_gray_cat_ears.json
+318e38d9c19d79916279edd19457ce8264ebf4a2 assets/meow/items/lime_cat_ears.json
+75d56944db37fc8f7d37e9fd05a66c482861e0fd assets/meow/items/magenta_cat_ears.json
 89c20f9c0cd77a088711b5d37c2e1af8ee39d878 assets/meow/items/meow.json
+a782fdb1f497061b8154b89b7b9bff41d9d1b1c9 assets/meow/items/orange_cat_ears.json
+17fed24d67514e07333324366e67340a6aa03331 assets/meow/items/pink_cat_ears.json
+c3b02dda1f817183b84a225693c2b8b454fa8093 assets/meow/items/purple_cat_ears.json
+698e24b299f44cc899abee68a72f6e804e22b291 assets/meow/items/red_cat_ears.json
+659edcb0dce1928ccf4a812b55161b7cfe87e614 assets/meow/items/white_cat_ears.json
+68af11ba0254f07139856a6de14aed81bd4ae152 assets/meow/items/yellow_cat_ears.json
 3f7a2d30cd34b4c4b1a352e5b8cfd4af07583a31 assets/meow/models/item/meow.json

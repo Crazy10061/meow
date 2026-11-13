@@ -3,8 +3,8 @@
 	"credit": "Made by Crazy10061 aka Lexi",
 	"texture_size": [32, 32],
 	"textures": {
-		"0": "meow:item/texture",
-		"particle": "meow:item/texture"
+		"0": "meow:item/white_cat_ears",
+		"particle": "meow:item/white_cat_ears"
 	},
 	"elements": [
 		{

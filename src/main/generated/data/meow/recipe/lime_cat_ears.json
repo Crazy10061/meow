@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "cat_ears",
+  "key": {
+    "#": "minecraft:string",
+    "$": "minecraft:lime_dye"
+  },
+  "pattern": [
+    "# #",
+    "# #",
+    "$ $"
+  ],
+  "result": {
+    "id": "meow:lime_cat_ears"
+  }
+}

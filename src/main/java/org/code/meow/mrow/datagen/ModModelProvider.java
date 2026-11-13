@@ -14,11 +14,12 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockModelGenerators blockModelGenerators) {
-
     }
 
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.MEOW, ModelTemplates.FLAT_ITEM);
+
+        ModItems.CAT_EARS.forEach(itemModelGenerators::declareCustomModelItem);
     }
 }

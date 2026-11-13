@@ -16,6 +16,9 @@
     "client": [
       "org.code.meow.mrow.MeowClient"
     ],
+    "server": [
+      "org.code.meow.mrow.MeowServer"
+    ],
     "main": [
       "org.code.meow.Meow"
     ]
