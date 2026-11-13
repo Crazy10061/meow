@@ -4,7 +4,6 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.HolderLookup;
-import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.ColorCollection;
 import org.code.meow.mrow.item.ModCreativeTabs;

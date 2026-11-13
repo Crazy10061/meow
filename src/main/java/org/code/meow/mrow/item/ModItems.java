@@ -2,6 +2,7 @@ package org.code.meow.mrow.item;
 
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.core.Registry;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
@@ -15,6 +16,7 @@ import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.component.ItemAttributeModifiers;
 import net.minecraft.world.item.equipment.ArmorMaterial;
 import net.minecraft.world.item.equipment.ArmorType;
+import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.ColorCollection;
 import org.code.meow.Meow;
 
@@ -60,7 +62,7 @@ public class ModItems {
         ColorCollection<String> keys = ColorCollection
             .prefixWithColor(ColorCollection.create(baseName));
 
-        return ColorCollection.registerItems(keys, (id, color) -> registerItem(id, function, props.humanoidArmor(materials.get(color), type)));
+        return ColorCollection.registerItems(keys, (id, color) -> registerItem(id, function, props.humanoidArmor(materials.get(color), type).component(DataComponents.EQUIPPABLE, Equippable.builder(type.getSlot()).setEquipSound(materials.get(color).equipSound()).build())));
     }
 
     public static void init() {
