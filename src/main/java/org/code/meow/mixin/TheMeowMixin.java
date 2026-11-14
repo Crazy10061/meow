@@ -10,6 +10,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class TheMeowMixin {
     @Inject(at = @At("HEAD"), method = "loadLevel")
     private void init(CallbackInfo info) {
-        System.out.println("Mrrrow");
+        System.out.println("meoww mrrpmeoww nyaaaaa mrraaoww mrrp miaw ,reowww mrroww mrauw mrrrrp :3 uwu meow meow meowww mrow purrrr mrrow Mrrow mrroow mrroow purrrr meoww nyaaaa mrrp purrrr nyaaa nyaaaa mow mrrp nyaaaa nyaaa meoww miaw mrrp purrrr meow nyaaa meow meowwwww meowwww meoww mrrow meoww meoww meoww :3 purrrrrr purrrrrr");
     }
 }
