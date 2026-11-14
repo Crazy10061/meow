@@ -5,7 +5,9 @@ import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.world.item.DyeColor;
 import org.code.meow.mrow.item.ModItems;
+import org.code.meow.mrow.item.ModModels;
 
 public class ModModelProvider extends FabricModelProvider {
     public ModModelProvider(FabricPackOutput output) {
@@ -20,6 +22,6 @@ public class ModModelProvider extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.MEOW, ModelTemplates.FLAT_ITEM);
 
-        ModItems.CAT_EARS.forEach(itemModelGenerators::declareCustomModelItem);
+        DyeColor.VALUES.forEach(col -> ModModels.catEars(itemModelGenerators, ModItems.CAT_EARS.pick(col), col.getName() + "_cat_ears"));
     }
 }
