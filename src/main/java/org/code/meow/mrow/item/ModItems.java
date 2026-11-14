@@ -19,6 +19,7 @@ import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.equipment.Equippable;
 import net.minecraft.world.level.block.ColorCollection;
 import org.code.meow.Meow;
+import org.code.meow.mrow.food.ModFoods;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -28,6 +29,8 @@ public class ModItems {
     public static ArrayList<Item> ALL_ITEMS = new ArrayList<>();
 
     public static final Item MEOW = registerItem("meow", Item::new, new Item.Properties().rarity(Rarity.EPIC));
+
+    public static final Item CATNIP = registerItem("catnip", properties -> new Item(properties.food(ModFoods.CATNIP)));
 
     public static final ColorCollection<Item> CAT_EARS = registerColoredHumanoidArmorItem(
         "cat_ears",
@@ -74,6 +77,10 @@ public class ModItems {
 
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT).register(output -> {
             CAT_EARS.forEach(output::accept);
+        });
+
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FOOD_AND_DRINKS).register(output -> {
+            output.accept(CATNIP);
         });
     }
 
