@@ -30,7 +30,7 @@ public class ModItems {
 
     public static final Item MEOW = registerItem("meow", Item::new, new Item.Properties().rarity(Rarity.EPIC));
 
-    public static final Item CATNIP = registerItem("catnip", properties -> new Item(properties.food(ModFoods.CATNIP)));
+    public static final Item CATNIP = registerItem("catnip", Item::new, new Item.Properties().food(ModFoods.CATNIP));
 
     public static final ColorCollection<Item> CAT_EARS = registerColoredHumanoidArmorItem(
         "cat_ears",

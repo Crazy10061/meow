@@ -34,6 +34,7 @@ public class LocalPlayerMixin {
 	@Inject(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/AbstractClientPlayer;aiStep()V", shift = At.Shift.BEFORE))
 	private void meow$handleDoubleJump(CallbackInfo ci) {
 		var p = (LocalPlayer)(Object)this;
+		var ears = p.getItemBySlot(EquipmentSlot.HEAD);
 
 		if (p.isCreative() || p.isSpectator()) return;
 
@@ -45,8 +46,10 @@ public class LocalPlayerMixin {
 			meow$releasedJump = false;
 		}
 
-		if (!p.onGround() && meow$isWearingCatEars() && p.input.keyPresses.jump() && meow$releasedJump && !meow$hasUsedDoubleJump) {
+		if (!p.onGround() && meow$isWearingCatEars() && p.input.keyPresses.jump() && meow$releasedJump && !meow$hasUsedDoubleJump && !ears.nextDamageWillBreak()) {
 			p.jumpFromGround();
+			ears.hurtWithoutBreaking(1, p);
+
 			meow$hasUsedDoubleJump = true;
 			meow$releasedJump = false;
 		}
