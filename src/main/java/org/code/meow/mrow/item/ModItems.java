@@ -40,7 +40,8 @@ public class ModItems {
             .attributes(ItemAttributeModifiers
                 .builder()
                 .add(Attributes.MOVEMENT_SPEED, new AttributeModifier(
-                    Meow.id("armor.cat_ears"), 0.7,
+                    Meow.id("armor.cat_ears"),
+                    .6,
                     AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                 ), EquipmentSlotGroup.HEAD)
                 .build()

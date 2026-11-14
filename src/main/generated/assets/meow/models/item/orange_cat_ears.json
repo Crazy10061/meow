@@ -1,0 +1,7 @@
+{
+  "parent": "meow:item/cat_ears_base",
+  "textures": {
+    "0": "meow:item/orange_cat_ears",
+    "particle": "meow:item/orange_cat_ears"
+  }
+}
