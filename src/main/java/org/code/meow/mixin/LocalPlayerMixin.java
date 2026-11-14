@@ -33,7 +33,9 @@ public class LocalPlayerMixin {
 
 	@Inject(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/AbstractClientPlayer;aiStep()V", shift = At.Shift.BEFORE))
 	private void meow$handleDoubleJump(CallbackInfo ci) {
-		var p = ((LocalPlayer)(Object)this);
+		var p = (LocalPlayer)(Object)this;
+
+		if (p.isCreative() || p.isSpectator()) return;
 
 		if (p.onGround()) meow$hasUsedDoubleJump = false;
 
@@ -55,8 +57,9 @@ public class LocalPlayerMixin {
 	@Expression("abilities.flying")
 	@WrapOperation(method = "aiStep", at = @At("MIXINEXTRAS:EXPRESSION"))
 	private boolean canFly(Abilities instance, Operation<Boolean> original) {
-		boolean isWearingCatEars = ((LocalPlayer)(Object)this).getItemBySlot(EquipmentSlot.HEAD).is(ModItemTagProvider.CAT_EARS);
+		var p = (LocalPlayer)(Object)this;
+		boolean isWearingCatEars = p.getItemBySlot(EquipmentSlot.HEAD).is(ModItemTagProvider.CAT_EARS);
 
-		return !isWearingCatEars && original.call(instance);
+		return (p.isCreative() || p.isSpectator()) ? original.call(instance) : (!isWearingCatEars && original.call(instance));
 	}
 }

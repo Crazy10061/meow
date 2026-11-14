@@ -1,21 +1,23 @@
 {
-    "required": true,
-    "mixinextras": {
-        "minVersion": "0.5.5"
-    },
-    "minVersion": "0.8",
-    "package": "org.code.meow.mixin",
-    "compatibilityLevel": "JAVA_25",
-    "mixins": [
-        "TheMeowMixin"
-    ],
-    "injectors": {
-        "defaultRequire": 1
-    },
-    "overwrites": {
-        "requireAnnotations": true
-    },
-    "client": [
-        "LocalPlayerMixin"
-    ]
+	"required": true,
+	"mixinextras": {
+		"minVersion": "0.5.5"
+	},
+	"minVersion": "0.8",
+	"package": "org.code.meow.mixin",
+	"compatibilityLevel": "JAVA_25",
+	"mixins": [
+		"AmbientSoundsMixin",
+		"CreeperMixin",
+		"TheMeowMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"overwrites": {
+		"requireAnnotations": true
+	},
+	"client": [
+		"LocalPlayerMixin"
+	]
 }
