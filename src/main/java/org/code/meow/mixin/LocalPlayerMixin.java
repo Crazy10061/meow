@@ -5,11 +5,13 @@ import com.llamalad7.mixinextras.expression.Expression;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Abilities;
 import org.code.meow.mrow.datagen.ModItemTagProvider;
+import org.code.meow.mrow.networking.DoubleJumpC2SPayload;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Unique;
@@ -48,7 +50,8 @@ public class LocalPlayerMixin {
 
 		if (!p.onGround() && meow$isWearingCatEars() && p.input.keyPresses.jump() && meow$releasedJump && !meow$hasUsedDoubleJump && !ears.nextDamageWillBreak()) {
 			p.jumpFromGround();
-			ears.hurtWithoutBreaking(1, p);
+
+			ClientPlayNetworking.send(new DoubleJumpC2SPayload());
 
 			meow$hasUsedDoubleJump = true;
 			meow$releasedJump = false;

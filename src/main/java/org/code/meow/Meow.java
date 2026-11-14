@@ -10,6 +10,7 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import org.code.meow.mrow.item.ModItems;
+import org.code.meow.mrow.networking.ModNetworking;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,6 +22,7 @@ public class Meow implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModNetworking.init();
         ModItems.init();
 
         LootTableEvents.MODIFY.register(((key, tableBuilder, source, holder) -> {
