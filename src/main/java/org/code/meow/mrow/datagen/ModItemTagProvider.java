@@ -6,7 +6,7 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.references.BlockItemIds;
 import net.minecraft.references.ItemIds;
-import net.minecraft.resources.Identifier;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import org.code.meow.Meow;
@@ -39,5 +39,9 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 		builder(CAT_EARS)
 			.addAll(ModItems.CAT_EARS.map(item -> item.builtInRegistryHolder().key()))
 			.setReplace(true);
+
+		builder(ItemTags.HEAD_ARMOR)
+			.addTag(ModItemTagProvider.CAT_EARS)
+			.setReplace(false);
 	}
 }

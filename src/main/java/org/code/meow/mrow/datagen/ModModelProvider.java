@@ -21,6 +21,7 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateItemModels(ItemModelGenerators itemModelGenerators) {
         itemModelGenerators.generateFlatItem(ModItems.MEOW, ModelTemplates.FLAT_ITEM);
+        itemModelGenerators.generateFlatItem(ModItems.CATNIP, ModelTemplates.FLAT_ITEM);
 
         DyeColor.VALUES.forEach(col -> ModModels.catEars(itemModelGenerators, ModItems.CAT_EARS.pick(col), col.getName() + "_cat_ears"));
     }

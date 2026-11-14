@@ -65,7 +65,7 @@ public class ModItems {
         ColorCollection<String> keys = ColorCollection
             .prefixWithColor(ColorCollection.create(baseName));
 
-        return ColorCollection.registerItems(keys, (id, color) -> registerItem(id, function, props.humanoidArmor(materials.get(color), type).component(DataComponents.EQUIPPABLE, Equippable.builder(type.getSlot()).setEquipSound(materials.get(color).equipSound()).build())));
+        return ColorCollection.registerItems(keys, (id, color) -> registerItem(id, function, props.humanoidArmor(materials.get(color), type).component(DataComponents.EQUIPPABLE, Equippable.builder(type.getSlot()).setDamageOnHurt(false).setEquipSound(materials.get(color).equipSound()).build())));
     }
 
     public static void init() {

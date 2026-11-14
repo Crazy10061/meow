@@ -37,6 +37,8 @@ public class Meow implements ModInitializer {
                 tableBuilder.withPool(pool);
             }
         }));
+
+        Meow.LOGGER.error("Lexi, please datagen your item definitions in the ModModelProvider we have it for a reason, its not that hard 😭🥀");
     }
 
     public static Identifier id(String path) {

@@ -19,7 +19,7 @@ public class ModNetworking {
 			if (!head.is(ModItemTagProvider.CAT_EARS))
 				return;
 
-			head.hurtWithoutBreaking(1, p);
+			head.hurtWithoutBreaking(3, p);
 		});
 	}
 }

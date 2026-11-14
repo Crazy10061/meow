@@ -2,6 +2,7 @@
 d87aa4543f7eef4c98af4a474b68f9bc55d5e62f assets/meow/items/black_cat_ears.json
 5b8a9454c9eaccec54cec2d05ba45bdf080f5e47 assets/meow/items/blue_cat_ears.json
 2ad677b1a581235050495541e6f512e46eb29a3d assets/meow/items/brown_cat_ears.json
+ce145d1866e8ec48591e481b1bdccecd6fccc6b1 assets/meow/items/catnip.json
 4c61d35644847368d10cd66bf4afdf966475317b assets/meow/items/cyan_cat_ears.json
 7e0a4779e26a839ba4a1f4ef4f08736d1e6f41b1 assets/meow/items/gray_cat_ears.json
 e128ebc0646508491ac4b496f504fe53465a3ccd assets/meow/items/green_cat_ears.json
@@ -19,6 +20,7 @@ c3b02dda1f817183b84a225693c2b8b454fa8093 assets/meow/items/purple_cat_ears.json
 39fd000c64a3717278270bdbdb22c4d0c1e499c2 assets/meow/models/item/black_cat_ears.json
 e33a897705cfd7aba350c44b21b5ae6763b93893 assets/meow/models/item/blue_cat_ears.json
 df78faf0a3acdcb366ddb2eda31353b9cf6f22f2 assets/meow/models/item/brown_cat_ears.json
+8a7f0c2c2da9a305fed9b09c9a3a6db969dfdb9e assets/meow/models/item/catnip.json
 a8da89380f5231ac4c1c858e356beea68789f77b assets/meow/models/item/cyan_cat_ears.json
 b1bc2fd19d81d08728ea866694bd1dbd41bd366e assets/meow/models/item/gray_cat_ears.json
 bf23284e746565cc9d1823e00fff32cc64f64d72 assets/meow/models/item/green_cat_ears.json
