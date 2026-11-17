@@ -3,6 +3,7 @@ package org.code.meow;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
+import org.code.meow.config.MeowConfig;
 import org.code.meow.data.ModDataAttachments;
 import org.code.meow.effect.ModEffects;
 import org.code.meow.loot.ModLootTableModifications;
@@ -22,9 +23,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.spongepowered.asm.mixin.MixinEnvironment;
 
+import java.nio.file.Paths;
+
 public class Meow implements ModInitializer {
     public static final String MOD_ID = "meow";
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+
+    public static final MeowConfig CONF = MeowConfig.createToml(Paths.get("conf"), "", Meow.MOD_ID, MeowConfig.class);
 
     @Override
     public void onInitialize() {

@@ -6,6 +6,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.render.RenderTickCounter;
 import net.minecraft.util.Colors;
 import net.minecraft.util.math.ColorHelper;
+import org.code.meow.Meow;
 import org.code.meow.data.EstrogenInfo;
 import org.code.meow.data.ModDataAttachments;
 
@@ -25,7 +26,7 @@ public class EstrogenBar implements HudElement {
 		int endY = 120;
 
 		long timeSince = client.world.getDimensionTime() - info.lastInjection();
-		long decay = 28800L/* * 7*/;
+		long decay = Meow.CONF.estrogenDecay;
 		float frac = 1.0f - (float)Math.clamp(timeSince, 0, decay) / (float)decay;
 		int filled = Math.round(120 * frac);
 

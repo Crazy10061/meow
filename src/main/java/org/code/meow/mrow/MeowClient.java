@@ -8,12 +8,15 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Util;
 import org.code.meow.Meow;
+import org.code.meow.config.MeowConfig;
 import org.code.meow.mrow.fluid.ModFluidRendering;
 import org.code.meow.mrow.gui.ModScreens;
 import org.code.meow.mrow.item.ModItemGroups;
 import org.code.meow.mrow.item.ModDataComponents;
 import org.code.meow.mrow.item.ModItems;
 import org.code.meow.mrow.item.ModSpecialRenderers;
+
+import java.nio.file.Paths;
 
 public class MeowClient implements ClientModInitializer {
     @Override
