@@ -9,6 +9,7 @@
   "license": "All-Rights-Reserved",
   "icon": "assets/meow/icon.png",
   "environment": "*",
+  "accessWidener": "meow.classtweaker",
   "entrypoints": {
     "fabric-datagen": [
       "org.code.meow.mrow.datagen.MeowDataGenerator"

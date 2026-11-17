@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "estrogen_bucket": {
+      "conditions": {
+        "items": [
+          {
+            "items": "meow:estrogen_bucket"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipes": "meow:dissolved_estrogen_bucket"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "estrogen_bucket"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "meow:dissolved_estrogen_bucket"
+    ]
+  }
+}

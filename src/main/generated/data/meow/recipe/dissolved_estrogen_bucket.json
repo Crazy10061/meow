@@ -1,0 +1,8 @@
+{
+  "type": "meow:dissolving",
+  "res": {
+    "id": "meow:dissolved_estrogen_bucket"
+  },
+  "x": "meow:estrogen_bucket",
+  "y": "meow:oil"
+}

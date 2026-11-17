@@ -1,9 +1,9 @@
 package org.code.meow.mixin;
 
 import com.llamalad7.mixinextras.injector.ModifyExpressionValue;
-import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.attribute.AmbientAdditionsSettings;
-import net.minecraft.world.attribute.AmbientMoodSettings;
+import net.minecraft.sound.BiomeAdditionsSound;
+import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.attribute.AmbientSounds;
 import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Mixin;
@@ -17,6 +17,6 @@ import java.util.Optional;
 public class AmbientSoundsMixin {
 	@ModifyExpressionValue(method = "<clinit>", at = @At(value = "NEW", target = "(Ljava/util/Optional;Ljava/util/Optional;Ljava/util/List;)Lnet/minecraft/world/attribute/AmbientSounds;", ordinal = 1))
 	private static AmbientSounds caveSettings(AmbientSounds original) {
-		return new AmbientSounds(Optional.of(SoundEvents.CAT_PURR_BABY), Optional.of(AmbientMoodSettings.LEGACY_CAVE_SETTINGS), List.of(new AmbientAdditionsSettings(SoundEvents.CAT_PURR_BABY, 100)));
+		return new AmbientSounds(Optional.of(SoundEvents.ENTITY_BABY_CAT_PURR), Optional.of(BiomeMoodSound.CAVE), List.of(new BiomeAdditionsSound(SoundEvents.ENTITY_BABY_CAT_PURR, 100)));
 	}
 }

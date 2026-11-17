@@ -1,4 +1,22 @@
 // 26.3	-999999999-01-01T00:00:00	Meow/Tags for minecraft:item
+6157fe733652fb0f09e802a5920523acd6fce96c data/c/tags/item/buckets.json
+93b660fc330fd609f84412add2202f8faffcc725 data/c/tags/item/dyed.json
+cf84c5830f86db658e5fdb7f187692bd00425858 data/c/tags/item/dyed/black.json
+74180b11975ab9a5889b6d4eb3683ae0fb8d1735 data/c/tags/item/dyed/blue.json
+1604fc1497653a4cfe42713086baca957cd28a98 data/c/tags/item/dyed/brown.json
+53fc1c18cf99f2bc2d21e76956cef82f902cd4e5 data/c/tags/item/dyed/cyan.json
+1db38f4fba753cf93d6d21dd08e45bedae8495e6 data/c/tags/item/dyed/gray.json
+460d5e760d8afd16e2d5b3aa5c8d1da34974837e data/c/tags/item/dyed/green.json
+71690d0aec5a9480b920bd677e484be57e95b5fb data/c/tags/item/dyed/light_blue.json
+32c200a9e017b02fee431318892704169802a48c data/c/tags/item/dyed/light_gray.json
+4f13b2924ac547884893cab018e22b4ebe46771c data/c/tags/item/dyed/lime.json
+0f97c63d364c03d3f6ada798cc0e2275cc6dc739 data/c/tags/item/dyed/magenta.json
+d72438ca08512d599f49015d53f5c31a30116d9b data/c/tags/item/dyed/orange.json
+b976a38291d208ebf479c1b97a4e64bf09c33ae8 data/c/tags/item/dyed/pink.json
+0293ab8d943dbebb9c3c6d590066bb50b255f103 data/c/tags/item/dyed/purple.json
+aaa0b85f9ec1e08c11259ad03a5d418217e93803 data/c/tags/item/dyed/red.json
+c8bfb2bacd5fd0a09d491afcf4b8b53986889f4d data/c/tags/item/dyed/white.json
+ef1233379be23fcf283b13e0da5bf211cf20173b data/c/tags/item/dyed/yellow.json
 93b660fc330fd609f84412add2202f8faffcc725 data/meow/tags/item/cat_ears.json
 f2901b0e64866c5518b7617ace6d555d2a64d4ff data/meow/tags/item/repairs_cat_ears.json
 f72da1cf0b19fd73a9c73a35c62388b8d9780dcf data/minecraft/tags/item/head_armor.json

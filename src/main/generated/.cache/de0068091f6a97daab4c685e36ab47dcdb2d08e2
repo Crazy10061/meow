@@ -1,0 +1,7 @@
+// 26.3	-999999999-01-01T00:00:00	Meow/ModDamageTypeProvider
+6b00ba929942567eeb4c2d15efaf2295675d96d6 data/meow/damage_type/other_estrogen_od.json
+03987cabd65642ad8edc27ab7171ef7d3a241e6b data/meow/damage_type/other_injected_lava.json
+905e614861b3c83e63a55abb5936645c4ed388ca data/meow/damage_type/other_undissolved_estrogen.json
+c788ae77607f1b42a43c4b387889d477442797fc data/meow/damage_type/self_estrogen_od.json
+f185a4b963ebe29acc6d512e4af24c8968fb30f5 data/meow/damage_type/self_injected_lava.json
+020ff87d992d585b11ef9c84588f619008d2574c data/meow/damage_type/self_undissolved_estrogen.json

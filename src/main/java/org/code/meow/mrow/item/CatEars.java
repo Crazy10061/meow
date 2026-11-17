@@ -1,25 +1,24 @@
 package org.code.meow.mrow.item;
 
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.world.InteractionHand;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.level.Level;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
+import net.minecraft.world.World;
 
 public class CatEars extends Item {
-	public CatEars(Properties properties) {
-		super(properties);
+	public CatEars(Item.Settings settings) {
+		super(settings);
 	}
 
 	@Override
-	public InteractionResult use(Level level, Player player, InteractionHand hand) {
-		if (level.isClientSide() && player instanceof LocalPlayer clientPlayer && clientPlayer.isShiftKeyDown()) {
+	public ActionResult use(World level, PlayerEntity player, Hand hand) {
+		if (level.isClient() && player instanceof ClientPlayerEntity clientPlayer && clientPlayer.isSneaking()) {
 			// todo: maybe make it use our meowlm™  llm?
-			clientPlayer.connection.sendChat("meow ^w^");
+			clientPlayer.networkHandler.sendChatMessage("meow ^w^");
 
-			return InteractionResult.SUCCESS;
+			return ActionResult.SUCCESS;
 		}
 
 		return super.use(level, player, hand);

@@ -7,7 +7,7 @@
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_yellow_dye": {
+    "yellow_dye": {
       "conditions": {
         "items": [
           {
@@ -21,7 +21,7 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_yellow_dye"
+      "yellow_dye"
     ]
   ],
   "rewards": {

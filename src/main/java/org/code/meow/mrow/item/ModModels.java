@@ -1,34 +1,31 @@
 package org.code.meow.mrow.item;
 
-import net.minecraft.client.data.models.ItemModelGenerators;
-import net.minecraft.client.data.models.model.ItemModelUtils;
-import net.minecraft.client.data.models.model.ModelTemplate;
-import net.minecraft.client.data.models.model.TextureMapping;
-import net.minecraft.client.data.models.model.TextureSlot;
-import net.minecraft.client.resources.model.sprite.Material;
-import net.minecraft.resources.Identifier;
-import net.minecraft.world.item.Item;
+import net.minecraft.client.data.*;
+import net.minecraft.client.render.model.ModelTexture;
+import net.minecraft.item.Item;
+import net.minecraft.util.Identifier;
 import org.code.meow.Meow;
 
 import java.util.Optional;
 
 public class ModModels {
-	public static final TextureSlot ZERO = TextureSlot.create("0");
+	public static final TextureKey ZERO = TextureKey.of("0");
 
-	public static final ModelTemplate CAT_EARS = new ModelTemplate(
+	public static final Model CAT_EARS = new Model(
 		Optional.of(Meow.id("item/cat_ears_base")),
 		Optional.empty(),
 		ZERO,
-		TextureSlot.PARTICLE
+		TextureKey.PARTICLE
 	);
 
-	public static void catEars(ItemModelGenerators generators, Item item, String texture) {
-		Material mat = new Material(Meow.id("item/" + texture));
-		TextureMapping mapping = new TextureMapping()
+	public static void catEars(ItemModelGenerator gen, Item item, String texture) {
+		ModelTexture mat = new ModelTexture(Meow.id("item/" + texture));
+		TextureMap mapping = new TextureMap()
 			.put(ZERO, mat)
-			.put(TextureSlot.PARTICLE, mat);
+			.put(TextureKey.PARTICLE, mat);
 
-		Identifier model = CAT_EARS.create(item, mapping, generators.modelOutput);
-		generators.itemModelOutput.accept(item, ItemModelUtils.plainModel(model));
+		Identifier model = CAT_EARS.upload(item, mapping, gen.modelCollector);
+
+		gen.output.accept(item, ItemModels.basic(model));
 	}
 }

@@ -1,9 +1,9 @@
 package org.code.meow.mrow.datagen;
 
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.DyeColor;
-import net.minecraft.world.item.equipment.EquipmentAsset;
-import net.minecraft.world.item.equipment.EquipmentAssets;
+import net.minecraft.item.equipment.EquipmentAsset;
+import net.minecraft.item.equipment.EquipmentAssetKeys;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.util.DyeColor;
 import org.code.meow.Meow;
 
 import java.util.EnumMap;
@@ -11,8 +11,8 @@ import java.util.Map;
 import java.util.function.Function;
 
 public interface ModEquipmentAssets {
-	Map<DyeColor, ResourceKey<EquipmentAsset>> CAT_EARS = makeEnumMap(DyeColor.class, color -> ResourceKey.create(
-		EquipmentAssets.ROOT_ID,
+	Map<DyeColor, RegistryKey<EquipmentAsset>> CAT_EARS = makeEnumMap(DyeColor.class, color -> RegistryKey.of(
+		EquipmentAssetKeys.REGISTRY_KEY,
 		Meow.id(color + "_cat_ears")
 	));
 

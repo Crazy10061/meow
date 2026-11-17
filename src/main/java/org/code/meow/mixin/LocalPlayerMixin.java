@@ -6,10 +6,9 @@ import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.llamalad7.mixinextras.sugar.Local;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.player.Abilities;
+import net.minecraft.client.network.ClientPlayerEntity;
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.player.PlayerAbilities;
 import org.code.meow.mrow.datagen.ModItemTagProvider;
 import org.code.meow.mrow.networking.DoubleJumpC2SPayload;
 import org.spongepowered.asm.mixin.Debug;
@@ -19,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(LocalPlayer.class)
+@Mixin(ClientPlayerEntity.class)
 @Debug(export = true)
 public class LocalPlayerMixin {
 	@Unique
@@ -30,26 +29,26 @@ public class LocalPlayerMixin {
 
 	@Unique
 	private boolean meow$isWearingCatEars() {
-		return ((LocalPlayer)(Object)this).getItemBySlot(EquipmentSlot.HEAD).is(ModItemTagProvider.CAT_EARS);
+		return ((ClientPlayerEntity)(Object)this).getEquipment(EquipmentSlot.HEAD).isIn(ModItemTagProvider.CAT_EARS);
 	}
 
-	@Inject(method = "aiStep", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/player/AbstractClientPlayer;aiStep()V", shift = At.Shift.BEFORE))
+	@Inject(method = "tickMovement", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/network/AbstractClientPlayerEntity;tickMovement()V", shift = At.Shift.BEFORE))
 	private void meow$handleDoubleJump(CallbackInfo ci) {
-		var p = (LocalPlayer)(Object)this;
-		var ears = p.getItemBySlot(EquipmentSlot.HEAD);
+		var p = (ClientPlayerEntity)(Object)this;
+		var ears = p.getEquipment(EquipmentSlot.HEAD);
 
 		if (p.isCreative() || p.isSpectator()) return;
 
-		if (p.onGround()) meow$hasUsedDoubleJump = false;
+		if (p.isOnGround()) meow$hasUsedDoubleJump = false;
 
-		if (!p.input.keyPresses.jump()) {
+		if (!p.input.playerInput.jump()) {
 			meow$releasedJump = true;
-		} else if (p.onGround()) {
+		} else if (p.isOnGround()) {
 			meow$releasedJump = false;
 		}
 
-		if (!p.onGround() && meow$isWearingCatEars() && p.input.keyPresses.jump() && meow$releasedJump && !meow$hasUsedDoubleJump && !ears.nextDamageWillBreak()) {
-			p.jumpFromGround();
+		if (!p.isOnGround() && meow$isWearingCatEars() && p.input.playerInput.jump() && meow$releasedJump && !meow$hasUsedDoubleJump && !ears.willBreakNextUse()) {
+			p.jump();
 
 			ClientPlayNetworking.send(new DoubleJumpC2SPayload());
 
@@ -58,13 +57,13 @@ public class LocalPlayerMixin {
 		}
 	}
 
-	@Definition(id = "abilities", local = @Local(type = Abilities.class, name = "abilities"))
-	@Definition(id = "flying", field = "Lnet/minecraft/world/entity/player/Abilities;flying:Z")
+	@Definition(id = "abilities", local = @Local(type = PlayerAbilities.class, name = "abilities"))
+	@Definition(id = "flying", field = "Lnet/minecraft/entity/player/PlayerAbilities;flying:Z")
 	@Expression("abilities.flying")
-	@WrapOperation(method = "aiStep", at = @At("MIXINEXTRAS:EXPRESSION"))
-	private boolean canFly(Abilities instance, Operation<Boolean> original) {
-		var p = (LocalPlayer)(Object)this;
-		boolean isWearingCatEars = p.getItemBySlot(EquipmentSlot.HEAD).is(ModItemTagProvider.CAT_EARS);
+	@WrapOperation(method = "tickMovement", at = @At("MIXINEXTRAS:EXPRESSION"))
+	private boolean canFly(PlayerAbilities instance, Operation<Boolean> original) {
+		var p = (ClientPlayerEntity)(Object)this;
+		boolean isWearingCatEars = p.getEquipment(EquipmentSlot.HEAD).isIn(ModItemTagProvider.CAT_EARS);
 
 		return (p.isCreative() || p.isSpectator()) ? original.call(instance) : (!isWearingCatEars && original.call(instance));
 	}

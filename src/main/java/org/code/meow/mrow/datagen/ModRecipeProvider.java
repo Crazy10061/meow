@@ -2,42 +2,58 @@ package org.code.meow.mrow.datagen;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.advancements.Advancement;
-import net.minecraft.core.HolderLookup;
-import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.worldgen.BootstrapContext;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Recipe;
-import net.minecraft.world.level.block.ColorCollection;
+import net.minecraft.advancement.Advancement;
+import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.item.Items;
+import net.minecraft.item.SimpleItemStackView;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.book.RecipeCategory;
+import net.minecraft.registry.Registerable;
+import net.minecraft.registry.RegistryView;
+import net.minecraft.util.ColorMap;
 import org.code.meow.mrow.item.ModItems;
+import org.code.meow.mrow.recipe.DissolvingRecipeBuilder;
 import org.jspecify.annotations.NonNull;
 
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
-	public ModRecipeProvider(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+	public ModRecipeProvider(FabricPackOutput output, CompletableFuture<RegistryView.WrapperLookup> registriesFuture) {
 		super(output, registriesFuture);
 	}
 
+	private DissolvingRecipeBuilder dissolving(Ingredient x, Ingredient y, SimpleItemStackView res, RecipeCategory cat) {
+		return DissolvingRecipeBuilder.builder(x, y, res, cat);
+	}
+
 	@Override
-	protected @NonNull RecipeProvider createRecipeProvider(HolderLookup.Provider registries, BootstrapContext<Recipe<?>> recipes, BootstrapContext<Advancement> advancements) {
-		return new RecipeProvider(recipes, advancements) {
+	protected @NonNull RecipeGenerator createRecipeProvider(RegistryView.WrapperLookup registries, Registerable<Recipe<?>> recipes, Registerable<Advancement> advancements) {
+		return new RecipeGenerator(recipes, advancements) {
 			@Override
-			public void buildRecipes() {
-				ColorCollection.zipApply(Items.DYE, ModItems.CAT_EARS, (dye, dyedCatEars) -> {
-					shaped(RecipeCategory.COMBAT, dyedCatEars)
-						.define('#', Items.STRING)
-						.define('$', dye)
+			public void generate() {
+				ColorMap.forEachZipped(Items.DYES, ModItems.CAT_EARS, (dye, dyedCatEars) -> {
+					createShaped(RecipeCategory.COMBAT, dyedCatEars)
+						.input('#', Items.TRIPWIRE)
+						.input('$', dye)
 						.pattern("# #")
 						.pattern("# #")
 						.pattern("$ $")
 						.group("cat_ears")
-						.unlockedBy(getHasName(dye), this.has(dye))
-						.save(this.output);
+						.criterion(getRecipeName(dye), this.conditionsFromItem(dye))
+						.offerTo(this.exporter);
 				});
 
-				colorItemWithDye(Items.DYE.asList(), ModItems.CAT_EARS.asList(), "cat_ears", RecipeCategory.COMBAT);
+				dissolving(
+					Ingredient.ofItem(ModItems.ESTROGEN_BUCKET),
+					Ingredient.ofItem(ModItems.OIL),
+					new SimpleItemStackView(ModItems.DISSOLVED_ESTROGEN_BUCKET, 1),
+					RecipeCategory.MISC
+				)
+					.criterion(getRecipeName(ModItems.ESTROGEN_BUCKET), this.conditionsFromItem(ModItems.ESTROGEN_BUCKET))
+					.offerTo(this.exporter);
+
+				offerDyeableRecipes(Items.DYES.values(), ModItems.CAT_EARS.values(), "cat_ears", RecipeCategory.COMBAT);
 			}
 		};
 	}
