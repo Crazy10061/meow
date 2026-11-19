@@ -30,6 +30,15 @@
   "mixins": [
     "meow.mixins.json"
   ],
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.github_releases": "https://github.com/crazy10061/meow/releases"
+      },
+      "update_checker": true,
+      "icon": "assets/transfems_delight/icon.png"
+    }
+  },
   "depends": {
     "fabricloader": ">=${loader_version}",
     "fabric-api": "*",
