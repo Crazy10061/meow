@@ -8,7 +8,11 @@
     "Lexi",
     "womangodev01"
   ],
-  "contact": {},
+  "contact": {
+    "homepage": "https://tinyurl.com/transfems-delight",
+    "sources": "https://github.com/Crazy10061/meow",
+    "issues": "https://github.com/Crazy10061/meow/issues"
+  },
   "license": "All-Rights-Reserved",
   "icon": "assets/transfems_delight/icon.png",
   "environment": "*",
@@ -35,6 +39,7 @@
       "links": {
         "modmenu.github_releases": "https://github.com/crazy10061/meow/releases"
       },
+      "website": "https://tinyurl.com/transfems-delight",
       "update_checker": true,
       "icon": "assets/transfems_delight/icon.png"
     }

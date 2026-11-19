@@ -32,7 +32,7 @@ jobs:
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Mod-Artifact
+          name: transfems_delight
           path: |
             build/libs/*.jar
             !build/libs/*-dev.jar
