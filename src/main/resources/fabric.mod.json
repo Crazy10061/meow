@@ -1,27 +1,30 @@
 {
   "schemaVersion": 1,
-  "id": "meow",
+  "id": "transfems_delight",
   "version": "${version}",
   "name": "Meow",
   "description": "meow",
-  "authors": [],
+  "authors": [
+    "Lexi",
+    "womangodev01"
+  ],
   "contact": {},
   "license": "All-Rights-Reserved",
-  "icon": "assets/meow/icon.png",
+  "icon": "assets/transfems_delight/icon.png",
   "environment": "*",
   "accessWidener": "meow.classtweaker",
   "entrypoints": {
     "fabric-datagen": [
-      "org.code.meow.mrow.datagen.MeowDataGenerator"
+      "meow.transfems.delight.mrow.datagen.MeowDataGenerator"
     ],
     "client": [
-      "org.code.meow.mrow.MeowClient"
+      "meow.transfems.delight.mrow.MeowClient"
     ],
     "server": [
-      "org.code.meow.mrow.MeowServer"
+      "meow.transfems.delight.mrow.MeowServer"
     ],
     "main": [
-      "org.code.meow.Meow"
+      "meow.transfems.delight.Meow"
     ]
   },
   "mixins": [

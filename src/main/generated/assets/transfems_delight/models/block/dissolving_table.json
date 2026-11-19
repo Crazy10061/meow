@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "transfems_delight:block/dissolving_table"
+  }
+}

@@ -1,8 +1,8 @@
 {
   "values": [
-    "meow:estrogen_source",
-    "meow:estrogen_flowing",
-    "meow:dissolved_estrogen_source",
-    "meow:dissolved_estrogen_flowing"
+    "transfems_delight:estrogen_source",
+    "transfems_delight:estrogen_flowing",
+    "transfems_delight:dissolved_estrogen_source",
+    "transfems_delight:dissolved_estrogen_flowing"
   ]
 }

@@ -1,9 +1,0 @@
-{
-  "model": {
-    "type": "minecraft:special",
-    "base": "meow:item/syringe",
-    "model": {
-      "type": "meow:syringe"
-    }
-  }
-}

@@ -1,0 +1,9 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "transfems_delight:item/syringe",
+    "model": {
+      "type": "transfems_delight:syringe"
+    }
+  }
+}
