@@ -21,6 +21,9 @@ public class ModModelProvider extends FabricModelProvider {
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator gen) {
         gen.registerSimpleCubeAll(ModBlocks.DISSOLVING_TABLE);
+        gen.registerMultifaceBlock(ModBlocks.TRANSFEM_FLAG);
+        gen.registerMultifaceBlock(ModBlocks.TRANS_FLAG);
+        gen.registerMultifaceBlock(ModBlocks.TRANSMASC_FLAG);
     }
 
     @Override

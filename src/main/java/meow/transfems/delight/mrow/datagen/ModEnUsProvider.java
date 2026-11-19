@@ -48,6 +48,9 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 
 		t.add(ModBlocks.DISSOLVING_TABLE, "Dissolving Table");
 		t.add(ModBlocks.DISSOLVED_ESTROGEN_FLUID, "Dissolved Estrogen");
+		t.add(ModBlocks.TRANS_FLAG, "Transgender Flag");
+		t.add(ModBlocks.TRANSFEM_FLAG, "Transfeminine Flag");
+		t.add(ModBlocks.TRANSMASC_FLAG, "Transmasculine Flag");
 		t.add(ModBlocks.ESTROGEN_FLUID, "Estrogen");
 
 		t.add(ModEffects.GENDER_EUPHORIA.value().getTranslationKey(), "Gender Euphoria");

@@ -2,6 +2,9 @@
   "block.transfems_delight.dissolved_estrogen": "Dissolved Estrogen",
   "block.transfems_delight.dissolving_table": "Dissolving Table",
   "block.transfems_delight.estrogen": "Estrogen",
+  "block.transfems_delight.trans_flag": "Transgender Flag",
+  "block.transfems_delight.transfem_flag": "Transfeminine Flag",
+  "block.transfems_delight.transmasc_flag": "Transmasculine Flag",
   "death.normal.other_estrogen_od": "%s overdosed %s on estrogen",
   "death.normal.other_injected_lava": "%s was injected by %s with lava",
   "death.normal.other_undissolved_estrogen": "%s was forcefemmed by %s with undissolved estrogen",
@@ -35,5 +38,5 @@
   "item.transfems_delight.white_cat_ears": "White Cat Ears",
   "item.transfems_delight.yellow_cat_ears": "Yellow Cat Ears",
   "itemGroup.hrt": "HRT",
-  "itemGroup.meow": "Meow"
+  "itemGroup.meow": "Transfems Delight"
 }

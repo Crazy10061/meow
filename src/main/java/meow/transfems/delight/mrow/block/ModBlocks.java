@@ -21,6 +21,9 @@ public class ModBlocks {
 	public static final Block DISSOLVED_ESTROGEN_FLUID = register("dissolved_estrogen", props -> new FluidBlock(ModFluids.DISSOLVED_ESTROGEN_SOURCE, props), AbstractBlock.Settings.copy(ESTROGEN_FLUID));
 
 	public static final Block DISSOLVING_TABLE = registerWithItem("dissolving_table", DissolvingTableBlock::new, AbstractBlock.Settings.create());
+	public static final Block TRANSFEM_FLAG = registerWithItem("transfem_flag", FlagBlock::new, AbstractBlock.Settings.create().breakInstantly());
+	public static final Block TRANS_FLAG = registerWithItem("trans_flag", FlagBlock::new, AbstractBlock.Settings.create().breakInstantly());
+	public static final Block TRANSMASC_FLAG = registerWithItem("transmasc_flag", FlagBlock::new, AbstractBlock.Settings.create().breakInstantly());
 
 	private static Block register(String id, Function<AbstractBlock.Settings, Block> blockFactory, AbstractBlock.Settings settings) {
 		RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, Meow.id(id));
