@@ -17,7 +17,7 @@ public class ModLootTableModifications {
 			if (source.isBuiltin() && VILLAGE_HOUSE_SOURCES.contains(key)) {
 				LootPool.Builder pool = LootPool.builder()
 					.add(ModItems.CAT_EARS.map(item -> {
-						return ItemEntry.builder(item)
+						return ItemEntry.builder(item.entry())
 							.weight(1)
 							.quality(2)
 							.build();

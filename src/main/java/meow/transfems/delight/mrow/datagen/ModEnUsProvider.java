@@ -1,5 +1,6 @@
 package meow.transfems.delight.mrow.datagen;
 
+import meow.transfems.delight.util.REWK;
 import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.client.resource.language.I18n;
@@ -29,29 +30,29 @@ public class ModEnUsProvider extends FabricLanguageProvider {
 	@Override
 	public void generateTranslations(@NotNull RegistryView.WrapperLookup registryLookup, TranslationBuilder t) {
 		ColorMap.COLORS.forEach(color -> {
-			Item ears = ModItems.CAT_EARS.get(color);
+			REWK<Item> ears = ModItems.CAT_EARS.get(color);
 
-			t.add(ears, I18n.translate("color.minecraft." + color.asString()) + " Cat Ears");
+			t.add(ears.entry(), I18n.translate("color.minecraft." + color.asString()) + " Cat Ears");
 		});
 
 		t.addCreativeModeTab(ModItemGroups.TRANSFEMS_DELIGHT_KEY, "Transfems Delight");
 		t.addCreativeModeTab(ModItemGroups.HRT_KEY, "HRT");
 
-		t.add(ModItems.MEOW, "Meow");
-		t.add(ModItems.ESTROGEN_BUCKET, "Bucket of Estrogen");
-		t.add(ModItems.DISSOLVED_ESTROGEN_BUCKET, "Bucket of Dissolved Estrogen");
-		t.add(ModItems.OIL, "Oil");
-		t.add(ModItems.CATNIP, "Catnip");
-		t.add(ModItems.SYRINGE, "Syringe");
+		t.add(ModItems.MEOW.entry(), "Meow");
+		t.add(ModItems.ESTROGEN_BUCKET.entry(), "Bucket of Estrogen");
+		t.add(ModItems.DISSOLVED_ESTROGEN_BUCKET.entry(), "Bucket of Dissolved Estrogen");
+		t.add(ModItems.OIL.entry(), "Oil");
+		t.add(ModItems.CATNIP.entry(), "Catnip");
+		t.add(ModItems.SYRINGE.entry(), "Syringe");
 
 		t.add(ModGameRules.ESTROGEN_SOURCE_CONVERSION.getTranslationKey(), "Estrogen Source Conversion");
 
-		t.add(ModBlocks.DISSOLVING_TABLE, "Dissolving Table");
-		t.add(ModBlocks.DISSOLVED_ESTROGEN_FLUID, "Dissolved Estrogen");
-		t.add(ModBlocks.TRANS_FLAG, "Transgender Flag");
-		t.add(ModBlocks.TRANSFEM_FLAG, "Transfeminine Flag");
-		t.add(ModBlocks.TRANSMASC_FLAG, "Transmasculine Flag");
-		t.add(ModBlocks.ESTROGEN_FLUID, "Estrogen");
+		t.add(ModBlocks.DISSOLVING_TABLE.entry(), "Dissolving Table");
+		t.add(ModBlocks.DISSOLVED_ESTROGEN_FLUID.entry(), "Dissolved Estrogen");
+		t.add(ModBlocks.TRANS_FLAG.entry(), "Transgender Flag");
+		t.add(ModBlocks.TRANSFEM_FLAG.entry(), "Transfeminine Flag");
+		t.add(ModBlocks.TRANSMASC_FLAG.entry(), "Transmasculine Flag");
+		t.add(ModBlocks.ESTROGEN_FLUID.entry(), "Estrogen");
 
 		t.add(ModEffects.GENDER_EUPHORIA.value().getTranslationKey(), "Gender Euphoria");
 

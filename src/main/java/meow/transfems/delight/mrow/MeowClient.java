@@ -26,7 +26,7 @@ public class MeowClient implements ClientModInitializer {
         HudElementRegistry.attachElementBefore(VanillaHudElements.CHAT, Meow.id("estrogen_bar"), new EstrogenBar());
 
         ItemTooltipCallback.EVENT.register((stack, context, type, tooltip) -> {
-            if (stack.is(ModItems.SYRINGE))
+            if (stack.is(ModItems.SYRINGE.entry()))
                 tooltip.add(Text.translatable("item.meow.syringe.inside", Text.translatable(Util.createTranslationKey("block", stack.get(ModDataComponents.INSIDE).getValue()))).formatted(Formatting.GOLD, Formatting.BOLD));
         });
     }

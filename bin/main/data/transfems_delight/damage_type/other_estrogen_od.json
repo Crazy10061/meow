@@ -1,0 +1,6 @@
+{
+  "death_message_type": "always_normal",
+  "exhaustion": 0.0,
+  "message_id": "other_estrogen_od",
+  "scaling": "never"
+}

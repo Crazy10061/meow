@@ -154,7 +154,7 @@ public class DissolvingTableScreenHandler extends ScreenHandler {
 
 	@Override
 	public boolean canUse(PlayerEntity player) {
-		return canUse(ctx, player, ModBlocks.DISSOLVING_TABLE);
+		return canUse(ctx, player, ModBlocks.DISSOLVING_TABLE.entry());
 	}
 
 	public void onTake(PlayerEntity player, ItemStack carried) {

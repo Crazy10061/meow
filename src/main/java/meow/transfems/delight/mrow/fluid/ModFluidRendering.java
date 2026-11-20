@@ -10,8 +10,8 @@ import net.minecraft.util.math.ColorHelper;
 public class ModFluidRendering {
 	public static void init() {
 		FluidRenderingRegistry.register(
-			ModFluids.ESTROGEN_SOURCE,
-			ModFluids.ESTROGEN_FLOWING,
+			ModFluids.ESTROGEN_SOURCE.entry(),
+			ModFluids.ESTROGEN_FLOWING.entry(),
 			new FluidModel.Unbaked(
 				new ModelTexture(Identifier.ofVanilla("block/water_still")),
 				new ModelTexture(Identifier.ofVanilla("block/water_flow")),
@@ -21,8 +21,8 @@ public class ModFluidRendering {
 		);
 
 		FluidRenderingRegistry.register(
-			ModFluids.DISSOLVED_ESTROGEN_SOURCE,
-			ModFluids.DISSOLVED_ESTROGEN_FLOWING,
+			ModFluids.DISSOLVED_ESTROGEN_SOURCE.entry(),
+			ModFluids.DISSOLVED_ESTROGEN_FLOWING.entry(),
 			new FluidModel.Unbaked(
 				new ModelTexture(Identifier.ofVanilla("block/water_still")),
 				new ModelTexture(Identifier.ofVanilla("block/water_flow")),

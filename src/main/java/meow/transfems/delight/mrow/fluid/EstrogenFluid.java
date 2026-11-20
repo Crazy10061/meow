@@ -77,22 +77,22 @@ public abstract class EstrogenFluid extends WaterFluid {
 
 	@Override
 	public @NonNull Fluid getFlowing() {
-		return ModFluids.ESTROGEN_FLOWING;
+		return ModFluids.ESTROGEN_FLOWING.entry();
 	}
 
 	@Override
 	public @NonNull Fluid getStill() {
-		return ModFluids.ESTROGEN_SOURCE;
+		return ModFluids.ESTROGEN_SOURCE.entry();
 	}
 
 	@Override
 	public boolean matchesType(@NonNull Fluid other) {
-		return other == ModFluids.ESTROGEN_FLOWING || other == ModFluids.ESTROGEN_SOURCE;
+		return other == ModFluids.ESTROGEN_FLOWING.entry() || other == ModFluids.ESTROGEN_SOURCE.entry();
 	}
 
 	@Override
 	public @NonNull Item getBucketItem() {
-		return ModItems.ESTROGEN_BUCKET;
+		return ModItems.ESTROGEN_BUCKET.entry();
 	}
 
 	@Override
@@ -103,7 +103,7 @@ public abstract class EstrogenFluid extends WaterFluid {
 	@Override
 	@NonNull
 	public BlockState toBlockState(@NonNull FluidState fluidState) {
-		return ModBlocks.ESTROGEN_FLUID.getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(fluidState));
+		return ModBlocks.ESTROGEN_FLUID.entry().getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(fluidState));
 	}
 
 	public static class Flowing extends EstrogenFluid {

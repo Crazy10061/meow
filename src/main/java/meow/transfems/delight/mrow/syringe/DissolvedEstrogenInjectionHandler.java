@@ -14,7 +14,7 @@ import meow.transfems.delight.mrow.damaage.ModDamageTypes;
 public class DissolvedEstrogenInjectionHandler implements InjectionHandler {
 	@Override
 	public RegistryKey<Block> getTrigger() {
-		return ModBlocks.DISSOLVED_ESTROGEN_FLUID.getSettings().blockId();
+		return ModBlocks.DISSOLVED_ESTROGEN_FLUID.entry().getSettings().blockId();
 	}
 
 	@Override

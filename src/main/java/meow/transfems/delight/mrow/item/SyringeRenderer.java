@@ -2,6 +2,7 @@ package meow.transfems.delight.mrow.item;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockItemKeys;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.RenderLayers;
@@ -38,7 +39,6 @@ import java.util.function.Consumer;
 public class SyringeRenderer implements SpecialModelRenderer<RegistryKey<Block>> {
 	public static final Identifier TEX = Meow.id("textures/item/syringe.png");
 	public static HashMap<RegistryKey<Block>, Identifier> CACHE = new HashMap<>();
-	public NativeImage syringeImageDefault;
 	public NativeImage syringeImage;
 
 	public SyringeRenderer() {
@@ -46,7 +46,6 @@ public class SyringeRenderer implements SpecialModelRenderer<RegistryKey<Block>>
 			.getResourceManager().getInputStreamOrThrow(TEX)) {
 			byte[] bytes = stream.readAllBytes();
 
-			syringeImageDefault = NativeImage.read(bytes);
 			syringeImage = NativeImage.read(bytes);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
@@ -160,13 +159,7 @@ public class SyringeRenderer implements SpecialModelRenderer<RegistryKey<Block>>
 
 		List<BakedQuad> allQuads = part.getQuads(Direction.UP);
 		Sprite sprite = !allQuads.isEmpty() ? allQuads.getFirst().materialInfo().sprite() : part.particleMaterial().sprite();
-		NativeImage topImage = ((SpriteContentsAccessor)sprite.getContents()).meow$getImage();
-
-		for (int y = 0; y < topImage.getHeight(); y++) {
-			for (int x = 0; x < topImage.getWidth(); x++) {
-				topImage.setColorArgb(x, y, topImage.getColorArgb(x, y));
-			}
-		}
+		NativeImage topImage = item == BlockItemKeys.AIR.block() ? new NativeImage(syringeImage.getWidth(), syringeImage.getHeight(), false) : ((SpriteContentsAccessor)sprite.getContents()).transfems_delight$getImage();
 
 		NativeImage composed = new NativeImage(syringeImage.getWidth(), syringeImage.getHeight(), false);
 		composed.copyFrom(syringeImage);
@@ -188,6 +181,10 @@ public class SyringeRenderer implements SpecialModelRenderer<RegistryKey<Block>>
 		Identifier id = registerDynamicTexture(item, composed);
 
 		CACHE.put(item, id);
+
+		if (!topImage.isClosed())
+			topImage.close();
+
 		return id;
 	}
 
@@ -197,7 +194,7 @@ public class SyringeRenderer implements SpecialModelRenderer<RegistryKey<Block>>
 
 	@Override
 	public @Nullable RegistryKey<Block> getData(ItemStack stack) {
-		return stack.is(ModItems.SYRINGE) ? stack.get(ModDataComponents.INSIDE) : null;
+		return stack.is(ModItems.SYRINGE.entry()) ? stack.get(ModDataComponents.INSIDE) : null;
 	}
 
 	public static class Unbaked implements SpecialModelRenderer.Unbaked<RegistryKey<Block>> {

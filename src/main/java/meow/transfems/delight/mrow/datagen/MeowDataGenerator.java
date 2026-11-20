@@ -13,6 +13,7 @@ public class MeowDataGenerator implements DataGeneratorEntrypoint {
 
         pack.addProvider(ModModelProvider::new);
         pack.addProvider(ModItemTagProvider::new);
+        pack.addProvider(ModBlockTagProvider::new);
         pack.addProvider(ModEnUsProvider::new);
         pack.addProvider(ModRecipeProvider::new);
         pack.addProvider(ModFluidTagProvider::new);

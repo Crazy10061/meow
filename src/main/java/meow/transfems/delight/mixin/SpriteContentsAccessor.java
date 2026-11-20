@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.gen.Accessor;
 @Mixin(SpriteContents.class)
 public interface SpriteContentsAccessor {
 	@Accessor("image")
-	public NativeImage meow$getImage();
+	public NativeImage transfems_delight$getImage();
 
 	@Accessor("image")
-	public void meow$setImage(NativeImage originalImage);
+	public void transfems_delight$setImage(NativeImage originalImage);
 }

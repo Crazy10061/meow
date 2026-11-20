@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "equipment",
+  "group": "cat_ears",
+  "ingredients": [
+    "minecraft:green_dye",
+    [
+      "transfems_delight:white_cat_ears",
+      "transfems_delight:orange_cat_ears",
+      "transfems_delight:magenta_cat_ears",
+      "transfems_delight:light_blue_cat_ears",
+      "transfems_delight:yellow_cat_ears",
+      "transfems_delight:lime_cat_ears",
+      "transfems_delight:pink_cat_ears",
+      "transfems_delight:gray_cat_ears",
+      "transfems_delight:light_gray_cat_ears",
+      "transfems_delight:cyan_cat_ears",
+      "transfems_delight:purple_cat_ears",
+      "transfems_delight:blue_cat_ears",
+      "transfems_delight:brown_cat_ears",
+      "transfems_delight:red_cat_ears",
+      "transfems_delight:black_cat_ears"
+    ]
+  ],
+  "result": {
+    "id": "transfems_delight:green_cat_ears"
+  }
+}

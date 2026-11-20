@@ -14,28 +14,28 @@ import org.jspecify.annotations.NonNull;
 public abstract class DissolvedEstrogenFluid extends EstrogenFluid {
 	@Override
 	public @NonNull Fluid getFlowing() {
-		return ModFluids.DISSOLVED_ESTROGEN_FLOWING;
+		return ModFluids.DISSOLVED_ESTROGEN_FLOWING.entry();
 	}
 
 	@Override
 	public @NonNull Fluid getStill() {
-		return ModFluids.DISSOLVED_ESTROGEN_SOURCE;
+		return ModFluids.DISSOLVED_ESTROGEN_SOURCE.entry();
 	}
 
 	@Override
 	public boolean matchesType(@NonNull Fluid other) {
-		return other == ModFluids.DISSOLVED_ESTROGEN_FLOWING || other == ModFluids.DISSOLVED_ESTROGEN_SOURCE;
+		return other == ModFluids.DISSOLVED_ESTROGEN_FLOWING.entry() || other == ModFluids.DISSOLVED_ESTROGEN_SOURCE.entry();
 	}
 
 	@Override
 	public @NonNull Item getBucketItem() {
-		return ModItems.DISSOLVED_ESTROGEN_BUCKET;
+		return ModItems.DISSOLVED_ESTROGEN_BUCKET.entry();
 	}
 
 	@Override
 	@NonNull
 	public BlockState toBlockState(@NonNull FluidState fluidState) {
-		return ModBlocks.DISSOLVED_ESTROGEN_FLUID.getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(fluidState));
+		return ModBlocks.DISSOLVED_ESTROGEN_FLUID.entry().getDefaultState().with(FluidBlock.LEVEL, getBlockStateLevel(fluidState));
 	}
 
 	public static class Flowing extends DissolvedEstrogenFluid {

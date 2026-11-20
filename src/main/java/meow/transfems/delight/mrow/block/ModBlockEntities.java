@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import meow.transfems.delight.Meow;
 
 public class ModBlockEntities {
-	public static final BlockEntityType<DissolvingTableBlockEntity> DISSOLVING_TABLE = register("dissolving_table", DissolvingTableBlockEntity::new, ModBlocks.DISSOLVING_TABLE);
+	public static final BlockEntityType<DissolvingTableBlockEntity> DISSOLVING_TABLE = register("dissolving_table", DissolvingTableBlockEntity::new, ModBlocks.DISSOLVING_TABLE.entry());
 
 	private static<T extends BlockEntity> BlockEntityType<T> register(
 		String name,

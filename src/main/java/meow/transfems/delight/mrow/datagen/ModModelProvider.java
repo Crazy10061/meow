@@ -20,26 +20,26 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator gen) {
-        gen.registerSimpleCubeAll(ModBlocks.DISSOLVING_TABLE);
-        gen.registerMultifaceBlock(ModBlocks.TRANSFEM_FLAG);
-        gen.registerMultifaceBlock(ModBlocks.TRANS_FLAG);
-        gen.registerMultifaceBlock(ModBlocks.TRANSMASC_FLAG);
+        gen.registerSimpleCubeAll(ModBlocks.DISSOLVING_TABLE.entry());
+        gen.registerMultifaceBlock(ModBlocks.TRANSFEM_FLAG.entry());
+        gen.registerMultifaceBlock(ModBlocks.TRANS_FLAG.entry());
+        gen.registerMultifaceBlock(ModBlocks.TRANSMASC_FLAG.entry());
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator gen) {
-        DyeColor.VALUES.forEach(col -> ModModels.catEars(gen, ModItems.CAT_EARS.get(col), col.asString() + "_cat_ears"));
+        DyeColor.VALUES.forEach(col -> ModModels.catEars(gen, ModItems.CAT_EARS.get(col).entry(), col.asString() + "_cat_ears"));
 
-        gen.register(ModItems.MEOW, Models.GENERATED);
-        gen.register(ModItems.CATNIP, Models.GENERATED);
-        gen.register(ModItems.OIL, Models.GENERATED);
-        gen.register(ModItems.DISSOLVED_ESTROGEN_BUCKET, Models.GENERATED);
-        gen.register(ModItems.ESTROGEN_BUCKET, Models.GENERATED);
+        gen.register(ModItems.MEOW.entry(), Models.GENERATED);
+        gen.register(ModItems.CATNIP.entry(), Models.GENERATED);
+        gen.register(ModItems.OIL.entry(), Models.GENERATED);
+        gen.register(ModItems.DISSOLVED_ESTROGEN_BUCKET.entry(), Models.GENERATED);
+        gen.register(ModItems.ESTROGEN_BUCKET.entry(), Models.GENERATED);
 
-        Identifier base = gen.upload(ModItems.SYRINGE, Models.GENERATED);
+        Identifier base = gen.upload(ModItems.SYRINGE.entry(), Models.GENERATED);
 
         gen.output.accept(
-            ModItems.SYRINGE,
+            ModItems.SYRINGE.entry(),
             ItemModels.special(base, SyringeRenderer.Unbaked.INSTANCE)
         );
     }

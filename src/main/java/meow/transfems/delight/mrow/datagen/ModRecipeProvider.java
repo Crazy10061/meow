@@ -33,7 +33,7 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 			@Override
 			public void generate() {
 				ColorMap.forEachZipped(Items.DYES, ModItems.CAT_EARS, (dye, dyedCatEars) -> {
-					createShaped(RecipeCategory.COMBAT, dyedCatEars)
+					createShaped(RecipeCategory.COMBAT, dyedCatEars.entry())
 						.input('#', Items.TRIPWIRE)
 						.input('$', dye)
 						.pattern("# #")
@@ -45,15 +45,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 				});
 
 				dissolving(
-					Ingredient.ofItem(ModItems.ESTROGEN_BUCKET),
-					Ingredient.ofItem(ModItems.OIL),
-					new SimpleItemStackView(ModItems.DISSOLVED_ESTROGEN_BUCKET, 1),
+					Ingredient.ofItem(ModItems.ESTROGEN_BUCKET.entry()),
+					Ingredient.ofItem(ModItems.OIL.entry()),
+					new SimpleItemStackView(ModItems.DISSOLVED_ESTROGEN_BUCKET.entry(), 1),
 					RecipeCategory.MISC
 				)
-					.criterion(getRecipeName(ModItems.ESTROGEN_BUCKET), this.conditionsFromItem(ModItems.ESTROGEN_BUCKET))
+					.criterion(getRecipeName(ModItems.ESTROGEN_BUCKET.entry()), this.conditionsFromItem(ModItems.ESTROGEN_BUCKET.entry()))
 					.offerTo(this.exporter);
 
-				offerDyeableRecipes(Items.DYES.values(), ModItems.CAT_EARS.values(), "cat_ears", RecipeCategory.COMBAT);
+				offerDyeableRecipes(Items.DYES.values(), ModItems.CAT_EARS.map(ears -> ears.entry()).values(), "cat_ears", RecipeCategory.COMBAT);
 			}
 		};
 	}

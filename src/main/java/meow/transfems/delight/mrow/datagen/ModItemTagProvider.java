@@ -39,16 +39,16 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 			.setReplace(true);
 
 		builder(CAT_EARS)
-			.addColors(ModItems.CAT_EARS.map(item -> item.getRegistryEntry().registryKey()))
+			.addColors(ModItems.CAT_EARS.map(item -> item.key()))
 			.setReplace(true);
 
 		builder(ConventionalItemTags.DYED)
-			.addColors(ModItems.CAT_EARS.map(item -> item.getRegistryEntry().registryKey()))
+			.addColors(ModItems.CAT_EARS.map(item -> item.key()))
 			.setReplace(true);
 
 		DyeColor.VALUES.forEach(col -> {
 			builder(ConventionalItemTags.COLOR_DYED.get(col))
-				.add(ModItems.CAT_EARS.get(col).getRegistryEntry().registryKey())
+				.add(ModItems.CAT_EARS.get(col).key())
 				.setReplace(false);
 		});
 
@@ -57,8 +57,8 @@ public class ModItemTagProvider extends FabricTagsProvider.ItemTagsProvider {
 			.setReplace(false);
 
 		builder(ConventionalItemTags.BUCKETS)
-			.add(ModItems.ESTROGEN_BUCKET.getRegistryEntry().registryKey())
-			.add(ModItems.DISSOLVED_ESTROGEN_BUCKET.getRegistryEntry().registryKey())
+			.add(ModItems.ESTROGEN_BUCKET.key())
+			.add(ModItems.DISSOLVED_ESTROGEN_BUCKET.key())
 			.setReplace(false);
 	}
 }

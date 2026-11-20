@@ -25,24 +25,24 @@ public class ModFluidTagProvider extends FabricTagsProvider.FluidTagsProvider {
 	@Override
 	protected void configure(RegistryView.WrapperLookup registries) {
 		builder(ESTROGEN)
-			.add(ModFluids.ESTROGEN_SOURCE.getRegistryEntry().registryKey())
-			.add(ModFluids.ESTROGEN_FLOWING.getRegistryEntry().registryKey())
-			.add(ModFluids.DISSOLVED_ESTROGEN_SOURCE.getRegistryEntry().registryKey())
-			.add(ModFluids.DISSOLVED_ESTROGEN_FLOWING.getRegistryEntry().registryKey())
+			.add(ModFluids.ESTROGEN_SOURCE.key())
+			.add(ModFluids.ESTROGEN_FLOWING.key())
+			.add(ModFluids.DISSOLVED_ESTROGEN_SOURCE.key())
+			.add(ModFluids.DISSOLVED_ESTROGEN_FLOWING.key())
 			.setReplace(false);
 
 		builder(FluidTags.WATER)
-			.add(ModFluids.ESTROGEN_SOURCE.getRegistryEntry().registryKey())
-			.add(ModFluids.ESTROGEN_FLOWING.getRegistryEntry().registryKey())
-			.add(ModFluids.DISSOLVED_ESTROGEN_SOURCE.getRegistryEntry().registryKey())
-			.add(ModFluids.DISSOLVED_ESTROGEN_FLOWING.getRegistryEntry().registryKey())
+			.add(ModFluids.ESTROGEN_SOURCE.key())
+			.add(ModFluids.ESTROGEN_FLOWING.key())
+			.add(ModFluids.DISSOLVED_ESTROGEN_SOURCE.key())
+			.add(ModFluids.DISSOLVED_ESTROGEN_FLOWING.key())
 			.setReplace(false);
 
 		builder(FluidTags.ENTITY_FLOATABLE)
-			.add(ModFluids.ESTROGEN_SOURCE.getRegistryEntry().registryKey())
-			.add(ModFluids.ESTROGEN_FLOWING.getRegistryEntry().registryKey())
-			.add(ModFluids.DISSOLVED_ESTROGEN_SOURCE.getRegistryEntry().registryKey())
-			.add(ModFluids.DISSOLVED_ESTROGEN_FLOWING.getRegistryEntry().registryKey())
+			.add(ModFluids.ESTROGEN_SOURCE.key())
+			.add(ModFluids.ESTROGEN_FLOWING.key())
+			.add(ModFluids.DISSOLVED_ESTROGEN_SOURCE.key())
+			.add(ModFluids.DISSOLVED_ESTROGEN_FLOWING.key())
 			.setReplace(false);
 	}
 }

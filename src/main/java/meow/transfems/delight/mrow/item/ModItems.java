@@ -1,5 +1,7 @@
 package meow.transfems.delight.mrow.item;
 
+import meow.transfems.delight.mrow.block.ModBlocks;
+import meow.transfems.delight.util.REWK;
 import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.block.BlockItemKeys;
 import net.minecraft.component.DataComponentTypes;
@@ -32,15 +34,15 @@ import java.util.function.Function;
 public class ModItems {
     public static ArrayList<Item> ALL_ITEMS = new ArrayList<>();
 
-    public static final Item MEOW = registerItem("meow", Item::new, new Item.Settings().rarity(Rarity.EPIC));
-    public static final Item CATNIP = registerItem("catnip", Item::new, new Item.Settings().food(ModFoods.CATNIP));
-    public static final Item OIL = registerItem("oil", Item::new, new Item.Settings().rarity(Rarity.COMMON));
-    public static final Item SYRINGE = registerItem("syringe", SyringeItem::new, new Item.Settings().rarity(Rarity.COMMON)
+    public static final REWK<Item> MEOW = registerItem("meow", Item::new, new Item.Settings().rarity(Rarity.EPIC));
+    public static final REWK<Item> CATNIP = registerItem("catnip", Item::new, new Item.Settings().food(ModFoods.CATNIP));
+    public static final REWK<Item> OIL = registerItem("oil", Item::new, new Item.Settings().rarity(Rarity.COMMON));
+    public static final REWK<Item> SYRINGE = registerItem("syringe", SyringeItem::new, new Item.Settings().rarity(Rarity.COMMON)
         .maxCount(1)
         .maxDamage(30)
         .withComponent(ModDataComponents.INSIDE, BlockItemKeys.AIR.block()));
 
-    public static final ColorMap<Item> CAT_EARS = registerColoredHumanoidArmorItem(
+    public static final ColorMap<REWK<Item>> CAT_EARS = registerColoredHumanoidArmorItem(
         "cat_ears",
         CatEars::new,
         ModArmorMaterials.CAT_EARS,
@@ -59,38 +61,46 @@ public class ModItems {
             )
     );
 
-    public static final Item ESTROGEN_BUCKET = registerItem("estrogen_bucket", settings -> new BucketItem(ModFluids.ESTROGEN_SOURCE, settings), new Item.Settings().useRemainder(Items.BUCKET).maxCount(1));
-    public static final Item DISSOLVED_ESTROGEN_BUCKET = registerItem("dissolved_estrogen_bucket", settings -> new BucketItem(ModFluids.DISSOLVED_ESTROGEN_SOURCE, settings), new Item.Settings().useRemainder(Items.BUCKET).maxCount(1));
+    public static final REWK<Item> ESTROGEN_BUCKET = registerItem("estrogen_bucket", settings -> new BucketItem(ModFluids.ESTROGEN_SOURCE.entry(), settings), new Item.Settings().useRemainder(Items.BUCKET).maxCount(1));
+    public static final REWK<Item> DISSOLVED_ESTROGEN_BUCKET = registerItem("dissolved_estrogen_bucket", settings -> new BucketItem(ModFluids.DISSOLVED_ESTROGEN_SOURCE.entry(), settings), new Item.Settings().useRemainder(Items.BUCKET).maxCount(1));
 
-    private static<T extends Item> Item registerItem(String name, Function<Item.Settings, T> function, Item.Settings settings) {
+    private static<T extends Item> REWK<Item> registerItem(String name, Function<Item.Settings, T> function, Item.Settings settings) {
         RegistryKey<Item> key = RegistryKey.of(RegistryKeys.ITEM, Meow.id(name));
         T item = function.apply(settings.registryKey(key));
 
         ALL_ITEMS.add(item);
 
-        return Registry.register(Registries.ITEM, Meow.id(name), item);
+        return new REWK<>(Registry.register(Registries.ITEM, key, item), key);
     }
 
-    private static<T extends Item> ColorMap<Item> registerColoredHumanoidArmorItem(String baseName, Function<Item.Settings, T> function, Map<DyeColor, ArmorMaterial> materials, EquipmentType type, Item.Settings settings) {
+    private static<T extends Item> ColorMap<REWK<Item>> registerColoredHumanoidArmorItem(String baseName, Function<Item.Settings, T> function, Map<DyeColor, ArmorMaterial> materials, EquipmentType type, Item.Settings settings) {
         ColorMap<String> keys = ColorMap
             .addPrefixes(ColorMap.constant(baseName));
 
-        return ColorMap.forItems(keys, (id, color) -> registerItem(id, function, settings.armor(materials.get(color), type).withComponent(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(type.getEquipmentSlot()).damageOnHurt(false).equipSound(materials.get(color).equipSound()).build())));
+        return REWK.forREWKItems(keys, (id, color) -> registerItem(id, function, settings.armor(materials.get(color), type).withComponent(DataComponentTypes.EQUIPPABLE, EquippableComponent.builder(type.getEquipmentSlot()).damageOnHurt(false).equipSound(materials.get(color).equipSound()).build())));
     }
 
     public static void init() {
         Meow.LOGGER.info("registering ModItems for " + Meow.MOD_ID);
 
         CreativeModeTabEvents.modifyOutputEvent(ItemGroups.NATURAL).register(output -> {
-            output.add(MEOW);
+            output.add(MEOW.entry());
         });
 
         CreativeModeTabEvents.modifyOutputEvent(ItemGroups.COMBAT).register(output -> {
-            CAT_EARS.forEach(output::add);
+            CAT_EARS.map(REWK::entry).forEach(output::add);
         });
 
         CreativeModeTabEvents.modifyOutputEvent(ItemGroups.FOOD_AND_DRINK).register(output -> {
-            output.add(CATNIP);
+            output.add(CATNIP.entry());
+        });
+
+        CreativeModeTabEvents.modifyOutputEvent(ItemGroups.FUNCTIONAL).register(output -> {
+            output.add(ModBlocks.DISSOLVING_TABLE.entry());
+        });
+
+        CreativeModeTabEvents.modifyOutputEvent(ItemGroups.SEARCH).register(output -> {
+            output.add(ModBlocks.TRANSFEM_FLAG.entry());
         });
     }
 

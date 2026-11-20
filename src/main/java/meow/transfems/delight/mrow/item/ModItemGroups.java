@@ -23,7 +23,7 @@ public class ModItemGroups {
 	);
 
 	public static final ItemGroup MEOW = Registry.register(Registries.ITEM_GROUP, TRANSFEMS_DELIGHT_KEY, FabricCreativeModeTab.builder()
-		.icon(ModItems.CAT_EARS.purple()::getDefaultStack)
+		.icon(ModItems.CAT_EARS.purple().entry()::getDefaultStack)
 		.displayName(Text.translatable("itemGroup.meow"))
 		.entries((params, output) -> {
 			output.addAll(ModItems.ALL_ITEMS.stream().map(Item::getDefaultStack).toList());
@@ -31,14 +31,14 @@ public class ModItemGroups {
 		.build());
 
 	public static final ItemGroup HRT = Registry.register(Registries.ITEM_GROUP, HRT_KEY, FabricCreativeModeTab.builder()
-		.icon(ModItems.ESTROGEN_BUCKET::getDefaultStack)
+		.icon(ModItems.ESTROGEN_BUCKET.entry()::getDefaultStack)
 		.displayName(Text.translatable("itemGroup.hrt"))
 		.entries((params, output) -> {
-			output.add(ModItems.ESTROGEN_BUCKET);
-			output.add(ModItems.OIL);
-			output.add(ModBlocks.DISSOLVING_TABLE.asItem());
-			output.add(ModItems.DISSOLVED_ESTROGEN_BUCKET);
-			output.add(ModItems.SYRINGE);
+			output.add(ModItems.ESTROGEN_BUCKET.entry());
+			output.add(ModItems.OIL.entry());
+			output.add(ModBlocks.DISSOLVING_TABLE.entry());
+			output.add(ModItems.DISSOLVED_ESTROGEN_BUCKET.entry());
+			output.add(ModItems.SYRINGE.entry());
 		})
 		.build());
 
