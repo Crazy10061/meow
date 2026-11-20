@@ -1,3 +1,0 @@
-classTweaker v2 named
-
-extend-enum net/minecraft/entity/damage/DeathMessageType TRANSFEMS_DELIGHT_ALWAYS_NORMAL

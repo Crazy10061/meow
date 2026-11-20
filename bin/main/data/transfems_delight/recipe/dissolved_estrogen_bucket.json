@@ -1,8 +1,0 @@
-{
-  "type": "transfems_delight:dissolving",
-  "res": {
-    "id": "transfems_delight:dissolved_estrogen_bucket"
-  },
-  "x": "transfems_delight:estrogen_bucket",
-  "y": "transfems_delight:oil"
-}

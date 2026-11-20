@@ -1,7 +1,0 @@
-{
-  "parent": "transfems_delight:item/cat_ears_base",
-  "textures": {
-    "0": "transfems_delight:item/purple_cat_ears",
-    "particle": "transfems_delight:item/purple_cat_ears"
-  }
-}
